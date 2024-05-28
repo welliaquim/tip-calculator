@@ -1,0 +1,15 @@
+.container_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+.input_wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+input::placeholder {
+  color: hsl(184, 14%, 56%);
+}
