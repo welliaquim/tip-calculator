@@ -12,7 +12,7 @@ export default function DataInput({ Icon, label, updateValue, value }) {
           type="text"
           inputMode="numeric"
           placeholder="0"
-          onChange={(e) => updateValue(e.target.value)}
+          onChange={(e) => updateValue(Number(e.target.value))}
           value={value}
         />
       </div>

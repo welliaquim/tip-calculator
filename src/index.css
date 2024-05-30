@@ -164,3 +164,66 @@ h1 {
   background-color: hsl(172, 67%, 45%);
   border: 1px solid hsl(172, 67%, 45%);
 }
+
+@media screen and (min-width: 699px) and (max-width: 1023px) {
+  #root,
+  .card {
+    width: 100%;
+  }
+  .card {
+    padding: 1rem;
+  }
+  .container_wrapper input {
+    width: 100%;
+  }
+  .insert_data,
+  .result_card {
+    width: 45%;
+  }
+  .tip,
+  .custom_tip {
+    width: 4rem;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 698px) {
+  #root,
+  .card,
+  .insert_data,
+  .result_card,
+  input {
+    width: 100%;
+  }
+  #root {
+    padding: 0;
+  }
+  .card {
+    flex-direction: column;
+    margin-top: 1rem;
+    border-radius: 0.1rem;
+    padding: 0.5rem;
+    height: fit-content;
+    gap: 2rem;
+  }
+
+  #root > svg:first-of-type {
+    margin-top: 2rem;
+  }
+  body {
+    align-items: baseline;
+  }
+  .tip,
+  .custom_tip {
+    width: 4.3rem;
+  }
+  .total_value_result {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 698px) {
+  .tip,
+  .custom_tip {
+    width: 5.2rem;
+  }
+}

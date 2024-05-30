@@ -16,13 +16,19 @@ const options = [
 function App() {
   const [tip, setTip] = useState(0);
   const [billValue, setBillValue] = useState(0);
-  const [pplNumber, setPplNumber] = useState(1);
-  const finalTip = (billValue * tip) / pplNumber;
-  const finalValue = billValue / pplNumber + finalTip;
-  console.log(pplNumber);
+  const [pplNumber, setPplNumber] = useState(0);
+  const finalTip = pplNumber > 0 ? (billValue * tip) / pplNumber : 0;
+  const finalValue = pplNumber > 0 ? billValue / pplNumber + finalTip : 0;
+  const handleReset = tip === 0 || billValue === 0 || pplNumber === 0;
 
   const handleSetPpl = (number) => {
     if (number > 0) setPplNumber(number);
+  };
+  const handleClickReset = (e) => {
+    e.preventDefault();
+    setTip(0);
+    setBillValue(0);
+    setPplNumber(0);
   };
 
   return (
@@ -44,7 +50,7 @@ function App() {
               <input
                 className="custom_tip"
                 placeholder="Custom"
-                value={tip * 100}
+                value={(tip * 100).toFixed(0)}
                 onChange={(e) => setTip(e.target.value / 100)}
               />
             </div>
@@ -57,17 +63,17 @@ function App() {
               <p className="subject_result">Tip Amount</p>
               <p>/ person</p>
             </div>
-            <h1>{finalTip.toFixed(2) || "$0.00"}</h1>
+            <h1>${finalTip.toFixed(2)}</h1>
           </div>
           <div className="total_value_result">
             <div className="tip_text">
               <p className="subject_result">Total</p>
               <p>/ person</p>
             </div>
-            <h1>{finalValue.toFixed(2) || "$0.00"}</h1>
+            <h1>${finalValue.toFixed(2)}</h1>
           </div>
 
-          <button className="reset" disabled>
+          <button className="reset" type="reset" disabled={handleReset} onClick={(e) => handleClickReset(e)}>
             Reset
           </button>
         </div>
