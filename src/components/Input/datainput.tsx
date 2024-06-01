@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { ComponentType } from "react";
 import "./index.css";
 
 interface DataInputProps {
   value: number;
   label: string;
   updateValue: (novoValor: number) => void;
-  Icon: any;
+  Icon: ComponentType;
 }
 
 // export default function DataInput({ Icon, label, updateValue, value }) {
