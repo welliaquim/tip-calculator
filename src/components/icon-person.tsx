@@ -1,4 +1,4 @@
-export default function IconPerson() {
+export function IconPerson() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="16">
       <path

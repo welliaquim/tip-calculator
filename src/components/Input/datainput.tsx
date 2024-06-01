@@ -1,6 +1,15 @@
+import { ReactNode } from "react";
 import "./index.css";
 
-export default function DataInput({ Icon, label, updateValue, value }) {
+interface DataInputProps {
+  value: number;
+  label: string;
+  updateValue: (novoValor: number) => void;
+  Icon: any;
+}
+
+// export default function DataInput({ Icon, label, updateValue, value }) {
+export default function DataInput({ Icon, label, updateValue, value }: DataInputProps) {
   return (
     <div className="container_wrapper">
       <p className="input_label">{label}</p>

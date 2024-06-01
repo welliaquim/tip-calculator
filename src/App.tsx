@@ -1,9 +1,9 @@
 import "./App.css";
 import SplitterLogo from "./components/splitter-logo";
-import IconDollar from "./components/icon-dollar";
-import IconPerson from "./components/icon-person";
 import DataInput from "./components/Input/datainput";
-import { useState } from "react";
+import { ChangeEvent, MouseEvent, useState } from "react";
+import { IconDollar } from "./components/icon-dollar";
+import { IconPerson } from "./components/icon-person";
 
 const options = [
   { label: "5%", valorTip: 0.05 },
@@ -21,14 +21,19 @@ function App() {
   const finalValue = pplNumber > 0 ? billValue / pplNumber + finalTip : 0;
   const handleReset = tip === 0 || billValue === 0 || pplNumber === 0;
 
-  const handleSetPpl = (number) => {
+  const handleSetPpl = (number: number) => {
     if (number > 0) setPplNumber(number);
   };
-  const handleClickReset = (e) => {
+  const handleClickReset = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setTip(0);
     setBillValue(0);
     setPplNumber(0);
+  };
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value);
+    setTip(value / 100);
   };
 
   return (
@@ -48,10 +53,11 @@ function App() {
                 );
               })}
               <input
+                type="number"
                 className="custom_tip"
                 placeholder="Custom"
                 value={(tip * 100).toFixed(0)}
-                onChange={(e) => setTip(e.target.value / 100)}
+                onChange={(e) => handleInputChange(e)}
               />
             </div>
           </div>
