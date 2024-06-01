@@ -8,7 +8,6 @@ interface DataInputProps {
   Icon: ComponentType;
 }
 
-// export default function DataInput({ Icon, label, updateValue, value }) {
 export default function DataInput({ Icon, label, updateValue, value }: DataInputProps) {
   return (
     <div className="container_wrapper">
